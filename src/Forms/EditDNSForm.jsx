@@ -10,7 +10,7 @@ const EditDNSForm = ({record}) => {
     //console.log(id); 
     const handleRequest=async()=>{ 
         //console.log("inside handleRequest");
-        const data=await axios.get(`${Base_URL}/api/records/${id}`);   
+        const data=await axios.get(`${process.env.Base_URL}/api/records/${id}`);   
         console.log("handle",data);
         return data;
     } 
@@ -32,7 +32,7 @@ const EditDNSForm = ({record}) => {
         e.preventDefault();
 
         try {
-            const response = await axios.patch(`${Base_URL}/api/records/${id}`, formData);
+            const response = await axios.patch(`${process.env.Base_URL}/api/records/${id}`, formData);
             
             if (response.status === 200) {
                 console.log('DNS record updated successfully');
