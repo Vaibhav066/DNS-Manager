@@ -19,7 +19,7 @@ const AddDNSForm = ({record}) => {
         console.log(formData);
 
         try {
-            const response = await axios.post(`${Base_URL}/newDNS`, formData);
+            const response = await axios.post(`${process.env.Base_URL}/newDNS`, formData);
             
             if (response.status === 200) {
                 console.log('DNS record added successfully');
