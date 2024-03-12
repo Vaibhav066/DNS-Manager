@@ -20,6 +20,7 @@ const MongoDBStore = require("connect-mongo");
 const dbUrl = process.env.DB_URI || 'mongodb://localhost:27017/dns-manager';
 const secret= process.env.SECRET || "thisshouldbeabettersecret!";
 
+
 mongoose.connect(dbUrl, { 
     });
 
