@@ -15,10 +15,13 @@ import {
 function DashBoard() {
   const [dnsRecords, setDNSRecords] = useState([]);
 
+  const Base_URL = "https://dns-manager-backend-ns6s.onrender.com";
+
   useEffect(() => {
     // Get the records from the API and set the state to those records
+    console.log("haisa",Base_URL);
     axios
-      .get(`${process.env.Base_URL}/api/records`)
+      .get(`${Base_URL}/api/records`)
       .then((response) => {
         console.log('Got response from server');
         console.log(response.data);
@@ -41,7 +44,7 @@ function DashBoard() {
   };
 
   const onDeleteHandler = (id) => {
-    let url = `${process.env.Base_URL}/api/records/${id}`;
+    let url = `${Base_URL}/api/records/${id}`;
     console.log(`delete button for id ${id} clicked`);
     axios
       .delete(url)

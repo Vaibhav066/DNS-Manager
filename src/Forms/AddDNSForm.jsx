@@ -3,6 +3,8 @@ import axios  from "axios";
 import './AddDNSForm.css';
 
 const AddDNSForm = ({record}) => {
+
+    const Base_URL = "https://dns-manager-backend-ns6s.onrender.com";
     const [formData, setFormData] = useState(record);
 
 
@@ -19,7 +21,7 @@ const AddDNSForm = ({record}) => {
         console.log(formData);
 
         try {
-            const response = await axios.post(`${process.env.Base_URL}/newDNS`, formData);
+            const response = await axios.post(`${Base_URL}/newDNS`, formData);
             
             if (response.status === 200) {
                 console.log('DNS record added successfully');
