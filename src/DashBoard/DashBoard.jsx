@@ -18,7 +18,7 @@ function DashBoard() {
   useEffect(() => {
     // Get the records from the API and set the state to those records
     axios
-      .get(`${Base_URL}/api/records`)
+      .get(`${process.env.Base_URL}/api/records`)
       .then((response) => {
         console.log('Got response from server');
         console.log(response.data);
@@ -41,7 +41,7 @@ function DashBoard() {
   };
 
   const onDeleteHandler = (id) => {
-    let url = `${Base_URL}/api/records/${id}`;
+    let url = `${process.env.Base_URL}/api/records/${id}`;
     console.log(`delete button for id ${id} clicked`);
     axios
       .delete(url)
